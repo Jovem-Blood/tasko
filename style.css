@@ -60,7 +60,7 @@ nav {
 }
 
 main {
-	padding: 1rem;
+/*	padding: 1rem; */
 	max-height: 70vh;
 	display: flex;
 	flex-direction: column;
