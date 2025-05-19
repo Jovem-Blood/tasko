@@ -1,0 +1,26 @@
+.slideover {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: flex-end;
+	z-index: 1000;
+}
+
+.slideover-content {
+	background-color: white;
+	width: 300px;
+	max-width: 80%;
+	height: 100%;
+	padding: 1.5rem;
+	box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+	transform: translateX(100%);
+}
+
+.slideover.hidden {
+	display: none;
+}
+
+.slideover:not(.hidden) .slideover-content {
+	transform: translateX(0%);
+}

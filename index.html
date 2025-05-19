@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tasko</title>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="icon" type="image/svg+xml" href="assets/icon.svg" />
+	<script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+	<script src=" https://cdn.jsdelivr.net/npm/inputmask@5.0.9/dist/jquery.inputmask.min.js "></script>
+</head>
+
+<body>
+	<div class="background">
+		<header>
+			<nav>
+				<div class="logo">
+					<img src="assets/logo.svg"
+						alt="Company Logo: four yellow-to-orange circles with three of them intersecting each other.">
+				</div>
+				<div class="options">
+					<div class="search-field">
+						<iconify-icon icon="mdi-light:magnify" width="40" height="40"></iconify-icon>
+						<input class="input-text" type="text" name="search" placeholder="SEARCH" />
+					</div>
+
+					<div>
+						<button class="menu-button" id="openSlideover">
+							<iconify-icon icon="material-symbols-light:menu" width="25" height="25"></iconify-icon>
+						</button>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<div id="slideover" class="slideover hidden">
+			<div class="slideover-content">
+				<div class="mobile-only">
+					<div class="flex">
+						<iconify-icon icon="mdi-light:magnify" width="40" height="40"></iconify-icon>
+						<input class="mobile-only" style="border-bottom: 1px solid gray;" type="text" name="search"
+							placeholder="SEARCH" />
+					</div>
+				</div>
+				<a href="#">
+					<h2>About Us</h2>
+				</a>
+				<hr />
+				<a href="#">
+					<h2>Products</h2>
+				</a>
+				<hr />
+				<a href="#">
+					<h2>Up Comming</h2>
+				</a>
+			</div>
+		</div>
+
+		<main>
+			<div></div>
+			<aside class="info-block">
+				<h1 class="title">IT'S TIME!</h1>
+				<hr class="card-separator" />
+				<h4 class="subtitle">THE NEW ROAD IT'S BEGINNING</h4>
+				<p class="paragraph ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+					tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi</p>
+				<button id="openModal" class="join-button ">JOIN-US!</button>
+			</aside>
+		</main>
+
+		<div class="modal">
+			<div class="modal-content">
+				<h2>Almost there!</h2>
+
+				<form action="#">
+					<div class="form-group">
+						<label for="name">Name:</label>
+						<input class="form-input" type="text" id="name" name="name" required>
+					</div>
+
+					<div class="form-group">
+						<label for="birthday">Birthday:</label>
+						<input class="form-input" type="date" id="birthday" name="birthday" required>
+					</div>
+
+					<div class="form-group">
+						<label for="email">Email:</label>
+						<input class="form-input" type="email" id="email" name="email" required>
+					</div>
+
+					<div class="form-group">
+						<label for="cpf">CPF:</label>
+						<input class="form-input" type="text" id="cpf" name="cpf" maxlength="14" placeholder="000.000.000-00"
+							required>
+					</div>
+
+
+					<div class="form-group">
+						<label for="gender">Gender:</label>
+						<select id="gender" name="gender" required>
+							<option value="">Select</option>
+							<option value="female">Female</option>
+							<option value="male">Male</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+					<button class="close red">Cancel</button>
+					<button type="submit" class="yellow">Join</button>
+				</form>
+
+
+			</div>
+		</div>
+
+		<script type="module">
+			import inputmask from 'https://cdn.jsdelivr.net/npm/inputmask@5.0.9/+esm';
+
+			const $ = (q) => document.querySelector(q);
+
+			const im = new Inputmask("999.999.999-99");
+			im.mask($("#cpf"));
+
+			$(".join-button").onclick = () => $(".modal").style.display = "flex";
+			$(".close").onclick = () => $(".modal").style.display = "none";
+			$("#openSlideover").onclick = () => $("#slideover").classList.remove("hidden");
+
+			window.onclick = (e) => {
+				if (e.target === $("#slideover")) {
+					$("#slideover").classList.add("hidden");
+				}
+			};
+		</script>
+	</div>
+</body>
+
+</html>
